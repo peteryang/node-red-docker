@@ -13,13 +13,9 @@ variables:
   imageName: 'pipelines-javascript-docker'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    task: Docker@2
-    displayName: Build an image
-    inputs:
-      repository: $(imageName)
-      command: build
-      Dockerfile: docker-custom/Dockerfile.debian
+- task: Docker@2
+  displayName: Build an image
+  inputs:
+    repository: $(imageName)
+    command: build
+    Dockerfile: docker-custom/Dockerfile.debian
